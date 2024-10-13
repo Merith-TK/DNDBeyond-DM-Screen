@@ -21,12 +21,12 @@ console.log("D&DBeyond DM Screen Starting");
 const linkUrlTarget = '.ddb-campaigns-character-card-footer-links-item-view';
 const campaignElementTarget = '.ddb-campaigns-detail-header-secondary';
 
-const rulesUrls = ["https://character-service.dndbeyond.com/character/v4/rule-data", "https://gamedata-service.dndbeyond.com/vehicles/v3/rule-data"];
-const charJSONurlBase = "https://character-service.dndbeyond.com/character/v4/character/";
+const rulesUrls = ["https://character-service.dndbeyond.com/character/v5/rule-data", "https://gamedata-service.dndbeyond.com/vehicles/v4/rule-data"];
+const charJSONurlBase = "https://character-service.dndbeyond.com/character/v5/character/";
 
 const stylesheetUrls = ["https://raw.githack.com/TeaWithLucas/DNDBeyond-DM-Screen/master/dm-screen.css"]
 
-const gameCollectionUrl = {prefix :"https://character-service.dndbeyond.com/character/v4/game-data/", postfix: "/collection"}
+const gameCollectionUrl = {prefix :"https://character-service.dndbeyond.com/character/v5/game-data/", postfix: "/collection"}
 const optionalRules = {
     "optionalOrigins": {category:"racial-trait", id:"racialTraitId" },
     "optionalClassFeatures": {category:"class-feature", id:"classFeatureId" },
@@ -685,11 +685,11 @@ function retriveRules(charIDs) {
             });
             rulesData = {
                 ruleset : js[0].data,
-                vehiclesRuleset : js[1].data
+                // vehiclesRuleset : js[1].data
             }
             for(let id in charactersData){
                 charactersData[id].state.ruleData = rulesData.ruleset;
-                charactersData[id].state.serviceData.ruleDataPool = rulesData.vehiclesRuleset;
+                // charactersData[id].state.serviceData.ruleDataPool = rulesData.vehiclesRuleset;
             }
             console.debug("Rules Data:");
             console.debug(rulesData);
